@@ -1,0 +1,71 @@
+@charset "UTF-8"
+
+body *
+  user-select none
+  color white
+
+a
+  text-decoration none
+
+#dock
+  display block
+  position fixed
+  bottom -100px
+  width 100%
+  left calc(50% - 1em)
+  transform translateX(-50%)
+  text-align center
+  transition .3s ease
+  li
+    list-style-type none
+    display inline-block
+    position relative
+    &:hover
+      & + li
+        .icon
+          transform scale(1.5)
+          margin 0 1em
+      span
+        display block
+    span
+      display none
+      position absolute
+      bottom 100px
+      left 0
+      width 100%
+      background-color #222
+      padding 4px 0
+      border-radius 7px
+  .icon
+    font-size 2rem
+    width 50px
+    height 50px
+    transform-origin 40% 70%
+    transition all .3s ease
+    &:hover
+      transform scale(2)
+      margin 0 1.5em
+
+#profile
+  position absolute
+  left 16px
+  bottom 16px
+  width 80px
+  height 80px
+  background-image url("media/profile.png")
+  background-size cover
+  background-position center
+  border-radius 50%
+  filter opacity(0.5) grayscale(0.5)
+  transition all .2s ease
+  &:hover
+    filter none
+    transform scale(1.08)
+    &::after
+      content "View\ARésumé"
+  &::after
+    position relative
+    left 96px
+    top 1rem
+    white-space pre-wrap
+    content "Bryce Tsao\Ahi@bry.cat"

@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title Bryce Tsao
+    %base{:target => "_blank"}
+    %link{:href => "min.css", :rel => "stylesheet", :type => "text/css"}
+  %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+  %script{:src => "https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js", :type => "module"}
+  %script{:src => "min.js"}
+  %body
+    %div
+      %a.arrow.prev
+      #instaflow
+      %a.arrow.next
+    #dock
+      %ul
+        %li
+          %a{:href => "https:github.com/brycetsao"}
+            %span GitHub
+            .icon
+              %ion-icon{:name => "logo-github"}
+        %li
+          %a{:href => "https:steamcommunity.com/id/brycetsao"}
+            %span Steam
+            .icon
+              %ion-icon{:name => "logo-steam"}
+        %li
+          %a{:href => "https:fb.me/vxijk"}
+            %span Facebook
+            .icon
+              %ion-icon{:name => "logo-facebook"}
+        %li
+          %a{:href => "https:instagr.am/brycetsao"}
+            %span Instagram
+            .icon
+              %ion-icon{:name => "logo-instagram"}
+        %li
+          %a{:href => "https://m.me/vxijk"}
+            %span Messenger
+            .icon
+              %ion-icon{:name => "chatbubble-outline"}
+        %li
+          %a{:href => "https:t.me/vxijk"}
+            %span Telegram
+            .icon
+              %ion-icon{:name => "paper-plane"}
+        %li
+          %a{:href => "mailto:hi@bry.cat"}
+            %span E-Mail
+            .icon
+              %ion-icon{:name => "mail"}
+    %a#profile{:href => "https:www.cakeresume.com/bryce"}
