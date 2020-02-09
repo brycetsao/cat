@@ -140,7 +140,3 @@ $ ->
         $.ig_prev()
       when 39
         $.ig_next()
-      else
-        break
-  $('#instaflow').on 'wheel', (e) ->
-    if e.originalEvent.wheelDelta > 0 then $.ig_prev() else $.ig_next()
