@@ -17,23 +17,15 @@ image-size = 480px
 .instagram
   pointer-events none
   & > img
-    width image-size
-    height image-size
+    pointer-events auto
+    cursor pointer
     position absolute
     left 50%
     transform-origin 50% 50%
+    width image-size
+    height image-size
+    border-radius 2px
     transition all .25s ease
-    pointer-events auto
-    cursor pointer
-    &::before
-      content ""
-      z-index 1
-      position absolute
-      top 300px
-      width 100%
-      height 10%
-      box-shadow 0 0 30px rgba(0, 0, 0, 0.7)
-
 
 .instagram[position="-5"]
   & > img
@@ -71,7 +63,7 @@ image-size = 480px
     z-index 10
     transform translateX(-240px)
     opacity 1
-    box-shadow 0 1px 25px 10px rgba(0, 0, 0, 0.6)
+    box-shadow 0 5px 25px 20px rgba(0, 0, 0, 0.6)
 
 .instagram[position="1"]
   & > img
