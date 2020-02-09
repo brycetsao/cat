@@ -80,7 +80,7 @@ $.InstaFlow = (opts) ->
         else
           caption = (if is_tag then data.name else data.username) + ' image ' + i
         html += '<div class=\'instagram ' + type_resource + '\' index=\'' + i + '\' position=\'' + Math.min(5, i) + '\'>'
-        html += '<img src=\'' + image + '\' alt=\'' + 'caption' + '\' />'
+        html += '<img draggable="false" src=\'' + image + '\' alt=\'' + 'caption' + '\' />'
         html += '<a class=\'description\' href=\'' + url + '\'>'
         html += '<p class=\'caption\'>' + caption + '<br>'
         html += '<span><ion-icon name=\'heart\'/> ' + imgs[i].node.edge_liked_by.count + '</span>' + ''
