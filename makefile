@@ -4,7 +4,7 @@ test:
 
 minify:
 	uglifycss src/*.css > min.css
-	uglifyjs -m -c -o min.js src/*.js
+	terser -m -c -o min.js src/*.js
 	haml -q --remove-whitespace src/index.haml index.html
 
 clean:

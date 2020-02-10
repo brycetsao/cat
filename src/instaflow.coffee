@@ -38,9 +38,8 @@ $.InstaFlow = (opts) ->
   is_tag = options.username == ''
   url = if is_tag then options.host + 'explore/tags/' + options.tag else options.host + options.username
   
-  $.get url, (data) -> 
-    `var url`
-    `var i`
+  $.get url, (data) ->
+
     data = data.split('window._sharedData = ')[1].split('</script>')[0]
     data = JSON.parse(data.substr(0, data.length - 1))
     data = data.entry_data.ProfilePage or data.entry_data.TagPage
@@ -79,12 +78,12 @@ $.InstaFlow = (opts) ->
           caption = imgs[i].node.accessibility_caption
         else
           caption = (if is_tag then data.name else data.username) + ' image ' + i
-        html += '<div class=\'instagram ' + type_resource + '\' index=\'' + (i + 1) + '\' position=\'' + Math.min(5, i + 1) + '\'>'
-        html += '<img draggable="false" src=\'' + image + '\' alt=\'' + 'caption' + '\' />'
-        html += '<a class=\'description\' href=\'' + url + '\'>'
-        html += '<p class=\'caption\'>' + caption + '<br>'
-        html += '<span><ion-icon name=\'heart\'/> ' + imgs[i].node.edge_liked_by.count + '</span>' + ''
-        html += '<span><ion-icon name=\'chatbubble\'/> ' + imgs[i].node.edge_media_to_comment.count + '</span>'
+        html += "<div class='instagram #{type_resource}' index=#{i + 1} position=#{Math.min(5, i + 1)}>"
+        html += "<img draggable='false' src='#{image}'>"
+        html += "<a class='description' href='#{url}'>"
+        html += "<p class='caption'>#{caption}<br>"
+        html += "<span><ion-icon name='heart'/>#{imgs[i].node.edge_liked_by.count}</span>"
+        html += "<span><ion-icon name='chatbubble'/>#{imgs[i].node.edge_media_to_comment.count}</span>"
         html += '</p>'
         html += '</a>'
         html += '</div>'
@@ -94,7 +93,7 @@ $.InstaFlow = (opts) ->
     $(options.container).append html
 
   .fail (e) ->
-    console.error "Instagram Feed: Unable to fetch the given user/tag. Instagram responded with the status code: ", e.status
+    console.error 'Instagram Feed: Unable to fetch the given user/tag. Instagram responded with the status code: ', e.status
 
   return true
 
