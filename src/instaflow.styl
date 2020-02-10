@@ -14,17 +14,32 @@ image-size = 480px
   overflow hidden
   perspective 2 * image-size
 
+.cover
+  width image-size
+  height image-size
+  border-radius 4px
+  position absolute
+  z-index 30
+  left 50%
+  transform translateX(-50%)
+  background black
+  color white
+  opacity 0.9
+  
+.cover, .instagram[position="0"] > img
+  box-shadow 0 5px 25px 20px rgba(0, 0, 0, 0.6)
+
 .instagram
   pointer-events none
   & > img
     pointer-events auto
     cursor pointer
-    position absolute
-    left 50%
-    transform-origin 50% 50%
     width image-size
     height image-size
     border-radius 2px
+    position absolute
+    left 50%
+    transform-origin 50% 50%
     transition all .25s ease
 
 .instagram[position="-5"]
@@ -63,7 +78,6 @@ image-size = 480px
     z-index 10
     transform translateX(-240px)
     opacity 1
-    box-shadow 0 5px 25px 20px rgba(0, 0, 0, 0.6)
 
 .instagram[position="1"]
   & > img
@@ -116,6 +130,7 @@ image-size = 480px
   top 50%
   transform translateY(-50%)
   padding 5rem
+  font-size 18px
   & > span
     line-height 3rem
     margin 0.5rem

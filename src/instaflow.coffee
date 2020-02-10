@@ -57,7 +57,7 @@ $.InstaFlow = (opts) ->
     else
       imgs = (data.edge_owner_to_timeline_media or data.edge_hashtag_to_media).edges
       max = if imgs.length > options.items then options.items else imgs.length
-      html += '<div class=\'instagram_gallery\'>'
+      html += '<div class=\'gallery\'>'
       i = 0
       while i < max
         url = 'https://www.instagram.com/p/' + imgs[i].node.shortcode
@@ -91,7 +91,7 @@ $.InstaFlow = (opts) ->
         i++
       html += '</div>'
 
-    $(options.container).html html
+    $(options.container).append html
 
   .fail (e) ->
     console.error "Instagram Feed: Unable to fetch the given user/tag. Instagram responded with the status code: ", e.status
@@ -104,6 +104,8 @@ valid = (i) ->
   1 <= i <= $('.instagram').length
 
 $.ig_prev = ->
+  return if $('.gallery').length == 0
+  $('.cover').hide()
   if valid(playing - 1)
     if valid(playing - 5)
       $('.instagram[index=' + (playing - 5) + ']').last().attr 'position', -4
@@ -113,6 +115,8 @@ $.ig_prev = ->
     --playing
 
 $.ig_next = ->
+  return if $('.gallery').length == 0
+  $('.cover').hide()
   if valid(playing + 1)
     if valid(playing + 5)
       $('.instagram[index=' + (playing + 5) + ']').first().attr 'position', 4
