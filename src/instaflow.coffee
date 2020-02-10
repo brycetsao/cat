@@ -79,7 +79,7 @@ $.InstaFlow = (opts) ->
           caption = imgs[i].node.accessibility_caption
         else
           caption = (if is_tag then data.name else data.username) + ' image ' + i
-        html += '<div class=\'instagram ' + type_resource + '\' index=\'' + i + '\' position=\'' + Math.min(5, i) + '\'>'
+        html += '<div class=\'instagram ' + type_resource + '\' index=\'' + (i + 1) + '\' position=\'' + Math.min(5, i + 1) + '\'>'
         html += '<img draggable="false" src=\'' + image + '\' alt=\'' + 'caption' + '\' />'
         html += '<a class=\'description\' href=\'' + url + '\'>'
         html += '<p class=\'caption\'>' + caption + '<br>'
@@ -101,7 +101,7 @@ $.InstaFlow = (opts) ->
 playing = 0
 
 valid = (i) ->
-  0 <= i < $('.instagram').length
+  1 <= i <= $('.instagram').length
 
 $.ig_prev = ->
   if valid(playing - 1)
