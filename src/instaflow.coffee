@@ -105,10 +105,10 @@ $.ig_prev = ->
 
 $.ig_next = ->
   unless playing == $('.instagram').length - 1
-    $('.cover').hide()
     $.ig_goto playing + 1
 
 $.ig_goto = (target) ->
+  $('.cover').hide()
   for ig, i in $('.instagram')
     $(ig).attr 'position', Math.max -5, Math.min 5, i - target
   playing = target
