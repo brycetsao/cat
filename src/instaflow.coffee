@@ -97,46 +97,28 @@ $.InstaFlow = (opts) ->
 
   return true
 
-playing = 0
-
-valid = (i) ->
-  1 <= i <= $('.instagram').length
+playing = -1
 
 $.ig_prev = ->
-  return if $('.gallery').length == 0
-  $('.cover').hide()
-  if valid(playing - 1)
-    if valid(playing - 5)
-      $('.instagram[index=' + (playing - 5) + ']').last().attr 'position', -4
-    for i in [-4..4]
-      if valid(playing + i)
-        $('.instagram[index=' + (playing + i) + ']').attr 'position', (i + 1)
-    --playing
+  unless playing <= 0
+    $.ig_goto playing - 1
 
 $.ig_next = ->
-  return if $('.gallery').length == 0
-  $('.cover').hide()
-  if valid(playing + 1)
-    if valid(playing + 5)
-      $('.instagram[index=' + (playing + 5) + ']').first().attr 'position', 4
-    for i in [-4..4]
-      if valid(playing + i)
-        $('.instagram[index=' + (playing + i) + ']').attr 'position', (i - 1)
-    ++playing
+  unless playing == $('.instagram').length - 1
+    $('.cover').hide()
+    $.ig_goto playing + 1
 
-$.ig_goto = (e) ->
-  target = $(e.target.parentElement).attr('index')
-  while playing < target
-    $.ig_next()
-  while playing > target
-    $.ig_prev()
-  return
+$.ig_goto = (target) ->
+  for ig, i in $('.instagram')
+    $(ig).attr 'position', Math.max -5, Math.min 5, i - target
+  playing = target
 
 $ ->
   $.InstaFlow()
   $('.prev').click $.ig_prev
   $('.next').click $.ig_next
-  $('#instaflow').click '.instagram > img', $.ig_goto
+  $('#instaflow').click '.instagram > img', (e) ->
+    $.ig_goto $(e.target).parent().index()
   $(document).keyup (e) ->
     switch e.which
       when 37
