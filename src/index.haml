@@ -6,7 +6,7 @@
     %base{:target => "_blank"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "min.css", }
     %script{:src => "https://code.jquery.com/jquery-3.4.1.min.js"}
-    %script{:defer => "", :src => "https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"}
+    %script{:src => "https://code.iconify.design/1/1.0.4/iconify.min.js"}
     %script{:defer => "", :src => "min.js"}
   %body
     #album
@@ -23,37 +23,37 @@
       %ul
         %li
           %a{:href => "https://github.com/brycetsao"}
-            %span GitHub
+            %span.label GitHub
             .icon
-              %ion-icon{:name => "logo-github"}
+              %span.iconify{:data => {:icon => "fa-brands:github"}}
         %li
           %a{:href => "https://steamcommunity.com/id/brycetsao"}
-            %span Steam
+            %span.label Steam
             .icon
-              %ion-icon{:name => "logo-steam"}
+              %span.iconify{:data => {:icon => "fa-brands:steam"}}
         %li
           %a{:href => "https://fb.me/vxijk"}
-            %span Facebook
+            %span.label Facebook
             .icon
-              %ion-icon{:name => "logo-facebook"}
+              %span.iconify{:data => {:icon => "fa-brands:facebook-square"}}
         %li
           %a{:href => "https://instagr.am/brycetsao"}
-            %span Instagram
+            %span.label Instagram
             .icon
-              %ion-icon{:name => "logo-instagram"}
+              %span.iconify{:data => {:icon => "fa-brands:instagram"}}
         %li
           %a{:href => "https://m.me/vxijk"}
-            %span Messenger
+            %span.label Messenger
             .icon
-              %ion-icon{:name => "chatbubble-outline"}
+              %span.iconify{:data => {:icon => "fa-brands:facebook-messenger"}}
         %li
           %a{:href => "https://t.me/vxijk"}
-            %span Telegram
+            %span.label Telegram
             .icon
-              %ion-icon{:name => "paper-plane"}
+              %span.iconify{:data => {:icon => "fa-brands:telegram-plane"}}
         %li
           %a{:href => "mailto:hi@bry.cat"}
-            %span E-Mail
+            %span.label E-Mail
             .icon
-              %ion-icon{:name => "mail"}
+              %span.iconify{:data => {:icon => "ion:mail-sharp"}}
     %a#profile{:href => "https://www.cakeresume.com/bryce"}

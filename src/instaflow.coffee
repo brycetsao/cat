@@ -78,8 +78,8 @@ class InstaFlow
           html += "<img draggable='false' src='#{image}'>"
           html += "<a class='description' href='#{url}'>"
           html += "<p class='caption'>#{caption}<br>"
-          html += "<span><ion-icon name='heart'/>#{imgs[i].node.edge_liked_by.count}</span>"
-          html += "<span><ion-icon name='chatbubble'/>#{imgs[i].node.edge_media_to_comment.count}</span>"
+          html += "<span><span class='iconify' data-icon='ion:heart'></span><ion-icon name='heart'/>#{imgs[i].node.edge_liked_by.count}</span>"
+          html += "<span><span class='iconify' data-icon='ion:chatbubble'></span>#{imgs[i].node.edge_media_to_comment.count}</span>"
           html += '</p>'
           html += '</a>'
           html += '</div>'
