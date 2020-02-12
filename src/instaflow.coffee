@@ -20,7 +20,7 @@ image_sizes =
   '480': 3
   '640': 4
 
-class InstaFlow
+class @InstaFlow
   constructor: (opts) ->
     options = $.extend({}, defaults, opts)
     @audio = options.audio
