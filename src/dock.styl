@@ -7,12 +7,14 @@ div, a
 
 #dock
   position fixed
-  bottom -100px
+  bottom 0px
   width 100%
   left calc(50% - 1em)
   transform translateX(-50%)
   text-align center
   transition .3s ease
+  &.hidden
+    bottom -100px
   li
     list-style-type none
     display inline-block
