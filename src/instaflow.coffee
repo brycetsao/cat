@@ -1,6 +1,6 @@
 defaults = 
   'host': 'https://www.instagram.com/'
-  'username': 'brycetsao'
+  'username': ''
   'tag': ''
   'container': '#instaflow'
   'display_profile': false
@@ -11,6 +11,7 @@ defaults =
   'callback': null
   'items': 12
   'image_size': 640
+  'audio': null
 
 image_sizes = 
   '150': 0
@@ -21,8 +22,9 @@ image_sizes =
 
 class InstaFlow
   constructor: (opts) ->
-    @playing = -1
     options = $.extend({}, defaults, opts)
+    @audio = options.audio
+    @playing = -1
     if options.username == '' and options.tag == ''
       console.error 'Instagram Feed: Error, no username or tag found.'
       return false
@@ -98,9 +100,14 @@ class InstaFlow
     for g, i in $('.instagram')
       $(g).attr 'position', Math.max -5, Math.min 5, i - target
     @playing = target
+    if @audio then @audio.play "media/#{$('.description')[@playing].href.split('/').pop()}.mp3"
 
 $ ->
-  ig = new InstaFlow()
+  vi = new Visualizer '#particles'
+  ig = new InstaFlow
+    'container': '#instaflow'
+    'username': 'brycetsao'
+    'audio': vi
   $('.prev').click -> ig.prev()
   $('.next').click -> ig.next()
   $('#instaflow').click '.instagram > img', (e) ->
