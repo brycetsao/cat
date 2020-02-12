@@ -4,10 +4,10 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %title Bryce Tsao
     %base{:target => "_blank"}
-    %link{:href => "min.css", :rel => "stylesheet", :type => "text/css"}
-  %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
-  %script{:src => "https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js", :type => "module"}
-  %script{:src => "min.js"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "min.css", }
+    %script{:src => "https://code.jquery.com/jquery-3.4.1.min.js"}
+    %script{:defer => "", :src => "https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"}
+    %script{:defer => "", :src => "min.js"}
   %body
     #album
       %a.arrow.prev
