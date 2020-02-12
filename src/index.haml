@@ -9,12 +9,16 @@
   %script{:src => "https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js", :type => "module"}
   %script{:src => "min.js"}
   %body
-    %div
+    #album
       %a.arrow.prev
+      %a.arrow.next
       #instaflow
         .cover
           .caption Fotografia hauria es visualitzarà amb música que coincideix l'estat d'ànim, per tant et poden portar allà.
-      %a.arrow.next
+    #particles
+      %audio
+      %canvas
+      %canvas.glow
     #dock
       %ul
         %li
