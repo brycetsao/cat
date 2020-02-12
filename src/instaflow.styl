@@ -14,20 +14,42 @@ image-size = 480px
   overflow hidden
   perspective 2 * image-size
 
-.cover
+.cover, .description
   width image-size
   height image-size
-  border-radius 4px
   position absolute
-  z-index 30
+  z-index 20
   left 50%
   transform translateX(-50%)
-  background black
+  background radial-gradient(
+              circle at bottom left,
+              hsla(45, 100%, 80%, 0.9) 0%,
+              hsla(350, 100%, 65%, 0.8) 50%,
+              hsla(300, 50%, 50%, 0.6) 100%)
+
+.cover, .description, .instagram > img
+  border-radius 4px
+  filter: drop-shadow(2px 4px 8px black)
+
+.description
+  opacity 0
+  transition 0s
+  &:hover
+    opacity 0.9
+    transition .25s ease .25s
+
+.caption
+  width 360px
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+  padding 5rem
+  font-size 18px
   color white
-  opacity 0.9
-  
-.cover, .instagram[position="0"] > img
-  box-shadow 0 5px 25px 20px rgba(0, 0, 0, 0.6)
+  & > span
+    line-height 3rem
+    margin 0.5rem
 
 .instagram
   pointer-events none
@@ -36,7 +58,6 @@ image-size = 480px
     cursor pointer
     width image-size
     height image-size
-    border-radius 2px
     position absolute
     left 50%
     transform-origin 50% 50%
@@ -109,35 +130,9 @@ image-size = 480px
     transform translateX(330px) scale(1/8)
     opacity 0.3
 
-.description
-  width image-size
-  height image-size
-  position absolute
-  z-index 20
-  left 50%
-  transform translateX(-50%)
-  background linear-gradient(45deg, rgba(38, 163, 255, 0.85), rgba(83, 201, 179, 0.85))
-  color white
-  opacity 0
-  transition 0s
-  &:hover
-    opacity 1
-    transition .25s ease .25s
-
-.caption
-  width "calc(%s - 10em)" % image-size
-  position absolute
-  top 50%
-  transform translateY(-50%)
-  padding 5rem
-  font-size 18px
-  & > span
-    line-height 3rem
-    margin 0.5rem
-
 .arrow
   cursor pointer
-  z-index 10
+  z-index 30
   position absolute
   top 50%
   padding 1.5rem 2rem
