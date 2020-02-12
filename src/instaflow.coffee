@@ -108,6 +108,6 @@ $ ->
   $(document).keyup (e) ->
     switch e.which
       when 37
-        $.ig_prev()
+        ig.prev()
       when 39
-        $.ig_next()
+        ig.next()
