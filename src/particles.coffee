@@ -28,7 +28,7 @@ class Particle
     @data = @get_data()
     @rad = @rad_min
     @pos = new Vector2 urand(X()), Y() + @rad + urand(256)
-    @vx = srand(4)
+    @vx = srand(2) * srand(2)
     @tick =  urand(256)
   update: ->
     @tick++
